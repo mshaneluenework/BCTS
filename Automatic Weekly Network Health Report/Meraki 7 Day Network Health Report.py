@@ -46,7 +46,7 @@ except ImportError:
 # CONFIG - EDIT THESE TWO LINES FOR EACH ORG YOU RUN THIS AGAINST
 # ---------------------------------------------------------------------------
 API_KEY = os.environ.get("MERAKI_DASHBOARD_API_KEY", "PASTE_YOUR_MERAKI_API_KEY_HERE")
-ORG_ID = "361642"   # e.g. "361642"  -- leave as "" to get an interactive picker instead
+ORG_ID = "1162985"   # e.g. "361642"  -- leave as "" to get an interactive picker instead
 LOCAL_UTC_OFFSET_HOURS = -4          # e.g. -4 for EDT, -5 for EST/CDT, +8 for PHT - adjust for the site's timezone
 # ---------------------------------------------------------------------------
 

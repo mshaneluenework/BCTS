@@ -20,7 +20,7 @@ jobs:
       - name: Generate report
         env:
           MERAKI_DASHBOARD_API_KEY: ${{ secrets.MERAKI_DASHBOARD_API_KEY }}
-        run: python "Automatic Weekly Network Health Report/Meraki_7_Day_Newtork_Health_Report.py" --org-id 361642
+        run: python Meraki_7_Day_Newtork_Health_Report.py --org-id 361642
 
       - name: Commit refreshed report
         run: |

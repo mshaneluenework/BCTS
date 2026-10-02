@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Network Health Report - BCTS - Best in Class Technology Services</title>
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: -apple-system, Segoe UI, Helvetica, Arial, sans-serif; background:#f6f8fa; color:#1f2328; margin:0; padding:40px; }
+  .container { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 26px; margin-bottom:4px; }
+  .subtitle { color:#57606a; margin-bottom:28px; }
+  .cards { display:flex; gap:16px; flex-wrap:wrap; margin-bottom:36px; }
+  a.card-link { text-decoration:none; color:inherit; flex:1; min-width:180px; }
+  .card { background:white; border:1px solid #d0d7de; border-radius:8px; padding:18px 22px; height:100%; box-sizing:border-box; transition:box-shadow .15s ease, transform .15s ease; }
+  a.card-link:hover .card { box-shadow:0 2px 8px rgba(0,0,0,0.08); transform:translateY(-1px); cursor:pointer; }
+  .card.static { cursor:default; }
+  .card .label { font-size:12px; text-transform:uppercase; color:#57606a; letter-spacing:.04em; }
+  .card .value { font-size:28px; font-weight:600; margin-top:4px; }
+  section { background:white; border:1px solid #d0d7de; border-radius:8px; padding:22px 24px; margin-bottom:24px; scroll-margin-top:20px; }
+  section h2 { font-size:17px; margin-top:0; border-bottom:1px solid #d0d7de; padding-bottom:10px; }
+  table { width:100%; border-collapse:collapse; font-size:13px; }
+  th { text-align:left; color:#57606a; font-weight:600; padding:8px 10px; border-bottom:1px solid #d0d7de; cursor:pointer; user-select:none; white-space:nowrap; }
+  th:hover { color:#1f2328; }
+  th.sort-asc::after { content:" \25B2"; font-size:10px; }
+  th.sort-desc::after { content:" \25BC"; font-size:10px; }
+  td { padding:8px 10px; border-bottom:1px solid #eaeef2; }
+  .empty { color:#57606a; font-style:italic; text-align:center; padding:16px; }
+  footer { color:#8b949e; font-size:12px; text-align:center; margin-top:30px; }
+  .table-scroll { overflow-x:auto; }
+  .table-toolbar { margin-bottom:10px; }
+  .search-box { width:100%; max-width:320px; padding:7px 10px; font-size:13px; border:1px solid #d0d7de; border-radius:6px; box-sizing:border-box; font-family:inherit; }
+  .search-box:focus { outline:none; border-color:#0969da; box-shadow:0 0 0 3px rgba(9,105,218,0.15); }
+  .header-actions { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; margin-bottom:28px; }
+  .export-btn { display:inline-flex; align-items:center; gap:6px; background:#1a7f37; color:white; text-decoration:none; font-size:13px; font-weight:600; padding:9px 16px; border-radius:6px; transition:background .15s ease; }
+  .export-btn:hover { background:#116329; }
+  tr.row-hidden { display:none; }
+  .pill { display:inline-block; font-size:11px; padding:1px 8px; border-radius:10px; background:#ddf4ff; color:#0969da; white-space:nowrap; }
+  code { background:#eaeef2; padding:1px 5px; border-radius:4px; font-size:12px; }
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="header-actions">
+    <div>
+      <h1>Network Health Report</h1>
+      <div class="subtitle">BCTS - Best in Class Technology Services &middot; Last 7 days &middot; Generated 10-02-2026 03:57 PM</div>
+    </div>
+    <a class="export-btn" href="meraki_health_report_2026-10-02_155618.xlsx" download>&#8595; Export to Excel</a>
+  </div>
+
+  <div class="subtitle" style="margin-top:-20px">Partial report. Sections included: AI websites and tools in use</div>
+
+  <div class="cards">
+    <div class="card-link"><div class="card static"><div class="label">Total Devices</div><div class="value">195</div></div></div>
+    <a class="card-link" href="#ai-usage"><div class="card"><div class="label">AI Tools Detected</div><div class="value" style="color:#0969da">5</div></div></a>
+    <a class="card-link" href="#ai-usage"><div class="card"><div class="label">AI Traffic (7d)</div><div class="value" style="color:#0969da">8.26 GB</div></div></a>
+    <a class="card-link" href="#ai-by-device"><div class="card"><div class="label">Devices Using AI</div><div class="value" style="color:#0969da">n/a</div></div></a>
+    <a class="card-link" href="#ai-suspected"><div class="card"><div class="label">Suspected AI Hosts (Review)</div><div class="value" style="color:#9a6700">28</div></div></a>
+  </div>
+
+  
+  <section id="ai-usage">
+    <h2>AI Websites &amp; Tools in Use (last 7 days)</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Hostname-level traffic matched against a catalog of 53 known AI tools (editable in <code>ai_domains.json</code>; subdomains match automatically). Sizes are in MB, sent + received. <b>What this can and can't tell you:</b> it shows <i>that</i> a tool was reached and <i>how much</i> data moved - not what was typed or uploaded (HTTPS content is invisible). Devices are identified by MAC/IP/hostname, not by person, unless the network uses 802.1X or similar. Usage over VPN, encrypted DNS, or off the corporate network is not seen. AI features embedded in broader sites (e.g. inside Microsoft 365 or Google Workspace) can't be separated from normal traffic. Lookups are by domain, so an app that shares domains with another product is counted under the tool it is catalogued as.</p>
+    <ul style="color:#9a6700;font-size:13px;margin:8px 0 14px;"><li>No traffic data returned for: BCTS-Azure, Staging Network. Traffic analysis is probably disabled there (Network-wide &gt; General).</li></ul>
+    <div class="table-toolbar"><input type="text" id="ai-usage-table-search" class="search-box" placeholder="Search this table..."></div><div class="table-scroll"><table class="data-table" id="ai-usage-table"><thead><tr><th>AI Tool</th><th>Category</th><th>Total (MB)</th><th>Sent (MB)</th><th>Received (MB)</th><th>Networks</th><th>Devices</th><th>Top Devices</th><th>Top Domains</th></tr></thead><tbody><tr><td><b>ChatGPT / OpenAI</b></td><td><span class='pill'>Chat assistant</span></td><td>6,623.73</td><td>1,515.74</td><td>5,107.99</td><td>19</td><td>-</td><td>-</td><td>chatgpt.com, persistent.oaistatic.com, ab.chatgpt.com</td></tr><tr><td><b>Claude / Anthropic</b></td><td><span class='pill'>Chat assistant</span></td><td>1,682.99</td><td>753.12</td><td>929.86</td><td>13</td><td>-</td><td>-</td><td>api.anthropic.com, claude.ai, downloads.claude.ai</td></tr><tr><td><b>Otter.ai</b></td><td><span class='pill'>Meeting / productivity</span></td><td>123.17</td><td>0.33</td><td>122.84</td><td>4</td><td>-</td><td>-</td><td>assets.otter.ai, otter.ai, public.otter.ai</td></tr><tr><td><b>Grammarly</b></td><td><span class='pill'>Writing assistant</span></td><td>30.00</td><td>4.74</td><td>25.27</td><td>6</td><td>-</td><td>-</td><td>capi.grammarly.com, gateway.grammarly.com, gnar.grammarly.com</td></tr><tr><td><b>Microsoft Copilot</b></td><td><span class='pill'>Chat assistant</span></td><td>0.27</td><td>0.16</td><td>0.11</td><td>2</td><td>-</td><td>-</td><td>copilot.microsoft.com, copilot.cloud.microsoft</td></tr></tbody></table></div>
+  </section>
+
+  <section id="ai-by-network">
+    <h2>AI Usage by Network</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">The same data split per network. "Clients (approx.)" is the highest client count Meraki reported for any single domain of that tool - a lower bound on distinct users, because Meraki doesn't de-duplicate clients across domains. The device table below gives exact counts.</p>
+    <div class="table-toolbar"><input type="text" id="ai-by-network-table-search" class="search-box" placeholder="Search this table..."></div><div class="table-scroll"><table class="data-table" id="ai-by-network-table"><thead><tr><th>Network</th><th>AI Tool</th><th>Total (MB)</th><th>Sent (MB)</th><th>Received (MB)</th><th>Clients (approx.)</th><th>Top Domains</th></tr></thead><tbody><tr><td>Rieck-Dayton</td><td>ChatGPT / OpenAI</td><td>2,427.86</td><td>154.07</td><td>2,273.79</td><td>18</td><td>persistent.oaistatic.com, chatgpt.com, ios.chat.openai.com</td></tr><tr><td>P1-Lenexa</td><td>ChatGPT / OpenAI</td><td>1,517.02</td><td>387.27</td><td>1,129.74</td><td>27</td><td>chatgpt.com, ab.chatgpt.com, codex-cloud-backend.chatgpt.com</td></tr><tr><td>MNBS - Ottawa</td><td>Claude / Anthropic</td><td>863.91</td><td>440.09</td><td>423.82</td><td>2</td><td>api.anthropic.com, claude.ai, assets-proxy.anthropic.com</td></tr><tr><td>Vulcan-Birmingham</td><td>ChatGPT / OpenAI</td><td>650.27</td><td>179.19</td><td>471.07</td><td>6</td><td>chatgpt.com, ab.chatgpt.com, ios.chat.openai.com</td></tr><tr><td>MNBS - Ottawa</td><td>ChatGPT / OpenAI</td><td>608.66</td><td>286.84</td><td>321.82</td><td>8</td><td>chatgpt.com, sdmntpreastus.oaiusercontent.com, ab.chatgpt.com</td></tr><tr><td>MNBS - Port Coquitlam</td><td>ChatGPT / OpenAI</td><td>509.21</td><td>181.77</td><td>327.44</td><td>10</td><td>chatgpt.com, ab.chatgpt.com, persistent.oaistatic.com</td></tr><tr><td>Vulcan-Huntsville</td><td>ChatGPT / OpenAI</td><td>393.14</td><td>62.46</td><td>330.68</td><td>2</td><td>chatgpt.com, sdmntpreastus2.oaiusercontent.com</td></tr><tr><td>Vulcan-Birmingham</td><td>Claude / Anthropic</td><td>345.11</td><td>231.64</td><td>113.47</td><td>4</td><td>api.anthropic.com, claude.ai, a-api.anthropic.com</td></tr><tr><td>P1-Lenexa</td><td>Claude / Anthropic</td><td>262.52</td><td>50.08</td><td>212.44</td><td>7</td><td>downloads.claude.ai, api.anthropic.com, assets-proxy.anthropic.com</td></tr><tr><td>Rieck-Dayton</td><td>Otter.ai</td><td>122.84</td><td>0.22</td><td>122.62</td><td>2</td><td>assets.otter.ai, otter.ai, public.otter.ai</td></tr><tr><td>Prairie Mechanical - Omaha</td><td>ChatGPT / OpenAI</td><td>120.41</td><td>57.26</td><td>63.15</td><td>14</td><td>chatgpt.com, ab.chatgpt.com, auth.openai.com</td></tr><tr><td>MNBS - Edmonton</td><td>ChatGPT / OpenAI</td><td>114.36</td><td>52.05</td><td>62.31</td><td>3</td><td>chatgpt.com, ab.chatgpt.com, sdmntprcentralus.oaiusercontent.com</td></tr><tr><td>Prairie Mechanical - Omaha</td><td>Claude / Anthropic</td><td>106.87</td><td>1.63</td><td>105.24</td><td>1</td><td>downloads.claude.ai, a.claude.ai, claude.ai</td></tr><tr><td>Prairie Mechanical - Lincoln</td><td>ChatGPT / OpenAI</td><td>76.15</td><td>50.69</td><td>25.46</td><td>3</td><td>chatgpt.com, ios.chat.openai.com, ab.chatgpt.com</td></tr><tr><td>Rieck-Cincinnati</td><td>ChatGPT / OpenAI</td><td>73.11</td><td>37.86</td><td>35.25</td><td>3</td><td>chatgpt.com, images.openai.com</td></tr><tr><td>BCTS-Southbridge</td><td>Claude / Anthropic</td><td>50.58</td><td>5.80</td><td>44.78</td><td>2</td><td>api.anthropic.com, assets-proxy.anthropic.com, claude.ai</td></tr><tr><td>P1-Urbandale</td><td>ChatGPT / OpenAI</td><td>46.93</td><td>20.27</td><td>26.66</td><td>2</td><td>chatgpt.com, ab.chatgpt.com</td></tr><tr><td>BCTS-Southbridge</td><td>ChatGPT / OpenAI</td><td>35.90</td><td>16.78</td><td>19.12</td><td>2</td><td>chatgpt.com, ios.chat.openai.com, sdmntprcentralus.oaiusercontent.com</td></tr><tr><td>Rieck-Dayton</td><td>Claude / Anthropic</td><td>33.09</td><td>21.44</td><td>11.65</td><td>3</td><td>claude.ai, api.anthropic.com, assets-proxy.anthropic.com</td></tr><tr><td>P1-St.Joseph</td><td>ChatGPT / OpenAI</td><td>24.80</td><td>14.18</td><td>10.62</td><td>2</td><td>chatgpt.com, ab.chatgpt.com</td></tr><tr><td>P1-Wichita</td><td>ChatGPT / OpenAI</td><td>13.41</td><td>9.92</td><td>3.49</td><td>6</td><td>chatgpt.com, ab.chatgpt.com</td></tr><tr><td>Rieck-Cincinnati</td><td>Claude / Anthropic</td><td>13.35</td><td>1.56</td><td>11.79</td><td>1</td><td>a.claude.ai, claude.ai</td></tr><tr><td>Mountain Air - Williston</td><td>ChatGPT / OpenAI</td><td>8.41</td><td>3.42</td><td>4.98</td><td>2</td><td>chatgpt.com, bzrcdn.openai.com, ab.chatgpt.com</td></tr><tr><td>P1-Urbandale</td><td>Grammarly</td><td>8.25</td><td>1.32</td><td>6.93</td><td>1</td><td>capi.grammarly.com, gnar.grammarly.com, gateway.grammarly.com</td></tr><tr><td>BCTS-Southlake</td><td>Claude / Anthropic</td><td>7.08</td><td>0.65</td><td>6.43</td><td>2</td><td>claude.ai, api.anthropic.com, a.claude.ai</td></tr><tr><td>Rieck-Dayton</td><td>Grammarly</td><td>6.54</td><td>0.69</td><td>5.86</td><td>1</td><td>gateway.grammarly.com, capi.grammarly.com, download-windows.grammarly.com</td></tr><tr><td>P1-Lenexa</td><td>Grammarly</td><td>5.07</td><td>0.73</td><td>4.34</td><td>4</td><td>capi.grammarly.com, gateway.grammarly.com, download-windows.grammarly.com</td></tr><tr><td>Rieck-Cincinnati</td><td>Grammarly</td><td>4.98</td><td>0.52</td><td>4.45</td><td>1</td><td>gateway.grammarly.com, capi.grammarly.com, static.grammarly.com</td></tr><tr><td>Mountain Air - Williston</td><td>Grammarly</td><td>4.12</td><td>0.74</td><td>3.37</td><td>1</td><td>capi.grammarly.com, gateway.grammarly.com, download-windows.grammarly.com</td></tr><tr><td>Rieck-ASG</td><td>ChatGPT / OpenAI</td><td>2.66</td><td>0.83</td><td>1.83</td><td>1</td><td>chatgpt.com</td></tr><tr><td>P1-Windsor</td><td>ChatGPT / OpenAI</td><td>1.07</td><td>0.54</td><td>0.53</td><td>1</td><td>chatgpt.com</td></tr><tr><td>Prairie Mechanical - Omaha</td><td>Grammarly</td><td>1.05</td><td>0.73</td><td>0.32</td><td>1</td><td>gateway.grammarly.com, gnar.grammarly.com</td></tr><tr><td>P1-Topeka</td><td>ChatGPT / OpenAI</td><td>0.36</td><td>0.33</td><td>0.03</td><td>2</td><td>ab.chatgpt.com, ios.chat.openai.com, persistent.oaistatic.com</td></tr><tr><td>P1-Lenexa</td><td>Otter.ai</td><td>0.32</td><td>0.10</td><td>0.22</td><td>2</td><td>otter.ai, assets.otter.ai</td></tr><tr><td>P1-Wichita</td><td>Microsoft Copilot</td><td>0.25</td><td>0.16</td><td>0.09</td><td>2</td><td>copilot.microsoft.com</td></tr><tr><td>MNBS - Port Coquitlam</td><td>Claude / Anthropic</td><td>0.24</td><td>0.17</td><td>0.07</td><td>2</td><td>claude.ai, assets-proxy.anthropic.com, assets.claude.ai</td></tr><tr><td>P1-Topeka</td><td>Claude / Anthropic</td><td>0.12</td><td>0.02</td><td>0.10</td><td>1</td><td>claude.ai, api.anthropic.com</td></tr><tr><td>P1-Wichita</td><td>Claude / Anthropic</td><td>0.06</td><td>0.00</td><td>0.06</td><td>1</td><td>claude.ai</td></tr><tr><td>Prairie Mechanical - Lincoln</td><td>Microsoft Copilot</td><td>0.03</td><td>0.00</td><td>0.02</td><td>1</td><td>copilot.cloud.microsoft</td></tr><tr><td>Thayer-Auburn</td><td>ChatGPT / OpenAI</td><td>0.03</td><td>0.00</td><td>0.02</td><td>1</td><td>chatgpt.com, ios.chat.openai.com</td></tr><tr><td>Vulcan-Huntsville</td><td>Claude / Anthropic</td><td>0.02</td><td>0.02</td><td>0.00</td><td>1</td><td>claude.ai, assets.claude.ai</td></tr><tr><td>P1-Windsor</td><td>Otter.ai</td><td>0.01</td><td>0.01</td><td>0.01</td><td>1</td><td>otter.ai, assets.otter.ai</td></tr><tr><td>BCTS-Southlake</td><td>Otter.ai</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>assets.otter.ai</td></tr><tr><td>Mountain Air - Williston</td><td>Claude / Anthropic</td><td>0.00</td><td>0.00</td><td>0.00</td><td>1</td><td>assets.claude.ai</td></tr></tbody></table></div>
+  </section>
+
+  <section id="ai-by-device">
+    <h2>AI Usage by Device</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Which devices used which AI tool, built from each client's own traffic history on networks where AI traffic was seen (the busiest clients per network are checked; see notes above if a network was capped). Numbers here come from a different Meraki endpoint than the tables above, so totals can differ slightly.</p>
+    <div class="table-toolbar"><input type="text" id="ai-by-device-table-search" class="search-box" placeholder="Search this table..."></div><div class="table-scroll"><table class="data-table" id="ai-by-device-table"><thead><tr><th>Network</th><th>Device</th><th>MAC</th><th>IP</th><th>User</th><th>AI Tool</th><th>Total (MB)</th><th>Sent (MB)</th><th>Received (MB)</th></tr></thead><tbody><tr><td colspan='9' class='empty'>Per-device attribution was turned off for this run.</td></tr></tbody></table></div>
+  </section>
+
+  <section id="ai-suspected">
+    <h2>Suspected AI Hosts - Needs Review</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">Hostnames not on the known list that <i>look</i> AI-related (an ".ai" domain, or a name containing words like "gpt", "llm" or "copilot"). Pattern matching produces false positives, so these are kept out of every total above. If one is a real AI tool, add it to <code>ai_domains.json</code>; if it's a false alarm, add it to <code>ignore_domains</code>.</p>
+    <div class="table-toolbar"><input type="text" id="ai-suspected-table-search" class="search-box" placeholder="Search this table..."></div><div class="table-scroll"><table class="data-table" id="ai-suspected-table"><thead><tr><th>Hostname</th><th>Network</th><th>Traffic (MB)</th><th>Clients (approx.)</th><th>Why Flagged</th></tr></thead><tbody><tr><td>appsgenaiserver-pa.googleapis.com</td><td>P1-Topeka</td><td>21.37</td><td>1</td><td>contains &#x27;genai&#x27;</td></tr><tr><td>chatbot.app</td><td>P1-Lenexa</td><td>19.94</td><td>1</td><td>contains &#x27;chatbot&#x27;</td></tr><tr><td>art.axon.ai</td><td>P1-Topeka</td><td>5.58</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>exchange.programmaticx.ai</td><td>Rieck-Dayton</td><td>4.91</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>m365copilotapp.svc.cloud.microsoft</td><td>P1-Lenexa</td><td>3.72</td><td>4</td><td>contains &#x27;copilot&#x27;</td></tr><tr><td>cdn.crescendo.ai</td><td>Mountain Air - Williston</td><td>2.02</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>weather.swishapps.ai</td><td>P1-Wichita</td><td>0.72</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>scs-use2.bixbyllm.com</td><td>Rieck-Dayton</td><td>0.61</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>api.autonomic.ai</td><td>Mountain Air - Williston</td><td>0.23</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>users.me.use.ai</td><td>Vulcan-Huntsville</td><td>0.21</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>browser.ace.ai</td><td>Rieck-Dayton</td><td>0.16</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>scs-use2.bixbyllm.com</td><td>Mountain Air - Williston</td><td>0.15</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>prod-e4.axon.ai</td><td>Rieck-Dayton</td><td>0.10</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>api.autonomic.ai</td><td>P1-Lenexa</td><td>0.09</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>scs-use2.bixbyllm.com</td><td>P1-Wichita</td><td>0.08</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>grpc.run.vivint.ai</td><td>P1-Topeka</td><td>0.03</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>grpc.run.vivint.ai</td><td>BCTS-Southlake</td><td>0.02</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>api.cortana.ai</td><td>Mountain Air - Williston</td><td>0.02</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>prod-e.axon.ai</td><td>Mountain Air - Williston</td><td>0.02</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>scs-use2.bixbyllm.com</td><td>MNBS - Port Coquitlam</td><td>0.01</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>scs-use2.bixbyllm.com</td><td>P1-Topeka</td><td>0.01</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>journey.oreate.ai</td><td>Rieck-Dayton</td><td>0.01</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>chatbot.foxit.com</td><td>MNBS - Ottawa</td><td>0.00</td><td>1</td><td>contains &#x27;chatbot&#x27;</td></tr><tr><td>users.me.use.ai</td><td>P1-Lenexa</td><td>0.00</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>assets.bidsystem.ai</td><td>Rieck-Dayton</td><td>0.00</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>cdn.alwayson.ai</td><td>Rieck-Dayton</td><td>0.00</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr><tr><td>www.bardwallmount.com</td><td>Rieck-Dayton</td><td>0.00</td><td>1</td><td>contains &#x27;llm&#x27;</td></tr><tr><td>use.ai</td><td>Vulcan-Huntsville</td><td>0.00</td><td>1</td><td>&#x27;.ai&#x27; domain</td></tr></tbody></table></div>
+  </section>
+
+  <section id="ai-discovery">
+    <h2>Discovery - Top Unmatched Hostnames</h2>
+    <p style="color:#57606a;font-size:13px;margin-top:-6px;">The busiest hostnames that matched neither the known list nor the suspect patterns. Skim this occasionally: a brand-new AI tool with an unremarkable domain will show up here before anywhere else.</p>
+    <div class="table-toolbar"><input type="text" id="ai-discovery-table-search" class="search-box" placeholder="Search this table..."></div><div class="table-scroll"><table class="data-table" id="ai-discovery-table"><thead><tr><th>Hostname</th><th>Traffic (MB)</th><th>Clients (approx.)</th><th>Networks</th></tr></thead><tbody><tr><td>pccfg.8x8.com</td><td>121,285.48</td><td>69</td><td>BCTS-Southlake, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-Cincinnati, Rieck-Dayton, Rieck-WPAFB, Vulcan-Birmingham, Vulcan-Huntsville</td></tr><tr><td>pmc-apps1.pmc.local</td><td>84,767.40</td><td>29</td><td>Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha</td></tr><tr><td>public.onecdn.static.microsoft</td><td>75,801.99</td><td>81</td><td>BCTS-Southbridge, BCTS-Southlake, MNBS - Edmonton, MNBS - Ottawa, MNBS - Port Coquitlam, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-ASG, Rieck-Cincinnati, Rieck-Dayton, Thayer-Auburn, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>bctsco.beyondtrustcloud.com</td><td>73,469.32</td><td>26</td><td>BCTS-Southbridge, BCTS-Southlake, MNBS - Edmonton, MNBS - Ottawa, MNBS - Port Coquitlam, MNBS - Stolz, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-ASG, Rieck-Cincinnati, Rieck-Dayton, Thayer-Auburn, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>prod.us003-prod.arcticwolf.net</td><td>66,271.17</td><td>123</td><td>BCTS-Southbridge, BCTS-Southlake, MNBS - Barrie, MNBS - Edmonton, MNBS - Margell, MNBS - Ottawa, MNBS - Port Coquitlam, MNBS - Stolz, MNBS - Vaughan, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-ASG, Rieck-Cincinnati, Rieck-Dayton, Rieck-WPAFB, Thayer-Auburn, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>na.prod.dssedge.com</td><td>38,868.39</td><td>2</td><td>P1-Lenexa, Rieck-Dayton, Vulcan-Birmingham</td></tr><tr><td>pr-rdpnew.pmc.local</td><td>25,854.60</td><td>3</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-5.0-h3-bo1-ir-1431579422</td><td>25,681.88</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-5.0-h3-bo1-ir-1430575099</td><td>25,475.14</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-5.0-h3-bo1-ir-1431578963</td><td>25,460.22</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-3.0w-h3-bo1-ir-1433590034</td><td>22,495.71</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>delivery.mp.microsoft.com</td><td>12,029.72</td><td>8</td><td>BCTS-Southbridge, BCTS-Southlake, MNBS - Ottawa, MNBS - Port Coquitlam, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, Rieck-Cincinnati, Rieck-Dayton, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>vod-akc-na-east-2.media.dssott.com</td><td>11,797.69</td><td>2</td><td>Vulcan-Birmingham</td></tr><tr><td>fbcdn.net</td><td>11,390.45</td><td>16</td><td>BCTS-Southlake, MNBS - Edmonton, MNBS - Ottawa, MNBS - Port Coquitlam, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-Cincinnati, Rieck-Dayton, Thayer-Auburn, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>client.wns.windows.com</td><td>10,921.46</td><td>31</td><td>BCTS-Southbridge, MNBS - Ottawa, MNBS - Port Coquitlam, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-Dayton, Vulcan-Birmingham, Vulcan-Huntsville</td></tr><tr><td>avigilon-camera-5.0-h3-bo1-ir-1431579033</td><td>10,550.19</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-5.0-h3-bo1-ir-1431579380</td><td>10,547.14</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>cloudfront.net</td><td>9,773.06</td><td>23</td><td>BCTS-Southbridge, BCTS-Southlake, MNBS - Edmonton, MNBS - Ottawa, MNBS - Stolz, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-Cincinnati, Rieck-Dayton, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>vod-ftc-na-east-2.media.dssott.com</td><td>9,640.88</td><td>1</td><td>Vulcan-Birmingham</td></tr><tr><td>eastus2.database.windows.net</td><td>8,888.66</td><td>1</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-3.0w-h3-bo1-ir-1433590017</td><td>8,775.07</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>avigilon-camera-3.0w-h3-bo1-ir-1433589992</td><td>8,720.45</td><td>2</td><td>Prairie Mechanical - Omaha</td></tr><tr><td>bcts.coinscloud.com</td><td>8,667.09</td><td>59</td><td>BCTS-Southlake, Mountain Air - Williston, P1-Lenexa, P1-St.Joseph, P1-Topeka, P1-Urbandale, P1-Wichita, P1-Windsor, Rieck-ASG, Rieck-Cincinnati, Rieck-Dayton, Rieck-WPAFB, Thayer-Auburn, Vulcan-Birmingham, Vulcan-Huntsville, Vulcan-Montgomery</td></tr><tr><td>modernniagara.fieldpointonline.com</td><td>7,854.71</td><td>26</td><td>MNBS - Barrie, MNBS - Edmonton, MNBS - Margell, MNBS - Ottawa, MNBS - Port Coquitlam, MNBS - Stolz</td></tr><tr><td>s-static.innovid.com</td><td>6,493.16</td><td>18</td><td>BCTS-Southlake, Mountain Air - Williston, P1-Lenexa, P1-Topeka, P1-Wichita, P1-Windsor, Prairie Mechanical - Lincoln, Prairie Mechanical - Omaha, Rieck-ASG, Rieck-Cincinnati, Rieck-Dayton, Rieck-WPAFB, Vulcan-Birmingham, Vulcan-Montgomery</td></tr></tbody></table></div>
+  </section>
+
+
+  <footer>Generated automatically via the Meraki Dashboard API. Data reflects a 7-day lookback window.</footer>
+</div>
+
+<script>
+(function() {
+  function initTable(table) {
+    var thead = table.tHead;
+    var tbody = table.tBodies[0];
+    if (!thead || !tbody) return;
+
+    Array.prototype.forEach.call(thead.rows[0].cells, function(th, colIdx) {
+      th.addEventListener('click', function() {
+        var rows = Array.prototype.filter.call(tbody.rows, function(r) {
+          return !r.classList.contains('empty-row') && r.cells.length > 1;
+        });
+        if (!rows.length) return;
+
+        var dir = th.classList.contains('sort-asc') ? 'desc' : 'asc';
+        Array.prototype.forEach.call(thead.rows[0].cells, function(c) {
+          c.classList.remove('sort-asc', 'sort-desc');
+        });
+        th.classList.add(dir === 'asc' ? 'sort-asc' : 'sort-desc');
+
+        rows.sort(function(a, b) {
+          var av = (a.cells[colIdx] ? a.cells[colIdx].innerText : '').trim();
+          var bv = (b.cells[colIdx] ? b.cells[colIdx].innerText : '').trim();
+          var an = parseFloat(av.replace(/[^0-9.\-]/g, ''));
+          var bn = parseFloat(bv.replace(/[^0-9.\-]/g, ''));
+          var cmp;
+          if (!isNaN(an) && !isNaN(bn) && /\d/.test(av) && /\d/.test(bv)) {
+            cmp = an - bn;
+          } else {
+            cmp = av.localeCompare(bv, undefined, {numeric: true, sensitivity: 'base'});
+          }
+          return dir === 'asc' ? cmp : -cmp;
+        });
+        rows.forEach(function(r) { tbody.appendChild(r); });
+      });
+    });
+  }
+
+  function initSearch(table) {
+    var searchBox = document.getElementById(table.id + '-search');
+    if (!searchBox) return;
+    var tbody = table.tBodies[0];
+    searchBox.addEventListener('input', function() {
+      var q = searchBox.value.trim().toLowerCase();
+      Array.prototype.forEach.call(tbody.rows, function(r) {
+        if (r.classList.contains('empty-row')) return;
+        var text = r.innerText.toLowerCase();
+        r.classList.toggle('row-hidden', q.length > 0 && text.indexOf(q) === -1);
+      });
+    });
+  }
+
+  Array.prototype.forEach.call(document.querySelectorAll('table.data-table'), function(table) {
+    initTable(table);
+    initSearch(table);
+  });
+})();
+</script>
+</body>
+</html>
